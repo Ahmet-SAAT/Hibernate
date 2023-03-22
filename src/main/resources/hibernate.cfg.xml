@@ -13,11 +13,11 @@
         <!--JDBC driver classının yerini tanımlaniyor. -->
         <property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
 
-        <property name="connection.url">jdbc:postgresql://localhost:5432/hibernate_db</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/dbadi</property>
 
-        <property name="connection.username">d_user</property>
+        <property name="connection.username">dbkullanicir</property>
 
-        <property name="connection.password">d_password</property>
+        <property name="connection.password">dbsifre</property>
 
         <!-- belirtilen veritabanı için SQL sorgularının Hibernate tarafından oluşturulması için gereklidir -->
         <property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
