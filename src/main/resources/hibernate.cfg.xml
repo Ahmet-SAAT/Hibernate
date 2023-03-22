@@ -29,7 +29,8 @@
              none: yukarıdakilerin hiç birisini yapmıyor.
          -->
 
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">update</property> <!--//create dedigim zaman
+       ekledigim veri tablo olsada her runda yeniden ekle diyor.Dolayisiyla canlida update olmali-->
 
         <property name="show_sql">true</property>
 
