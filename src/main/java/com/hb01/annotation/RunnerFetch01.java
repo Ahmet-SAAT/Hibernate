@@ -47,7 +47,7 @@ public class RunnerFetch01 {
 /*
             **********Yukaridaki 3 methodu kiyaslayalim.**********8
         1--ucude ayni isi yapiyorsa 1.yol daha iyidir.Cunku methodlarla calisir ve cte verir.
-           -Digerleri stiring bir query ile calistigi icin rte ihtimali fazladir.
+           -Digerleri string bir query ile calistigi icin rte ihtimali fazladir.
         2--1.yoldaki methodlar isimizi gormuyorsa HQL ile calismaliyiz.Nicin SQL degil ?
            --Sql firmasi degisirse kod patlayabilir.HQL de ortak kodlar vardir.
         3--SQL en son care olarak kullanilmalidir.
@@ -55,18 +55,37 @@ public class RunnerFetch01 {
 
         //-Donecek kaydin tek bir tane oldugundan eminsen uniqueResult methodum var.Kullanilabilir.
         //SQL
-       // String sqlQuery2 = "select from t_student01 where student_name='Ahmet Saat'";
-     //   Object[] uniqueResult1 = (Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
-       // System.out.println(Arrays.toString(uniqueResult1));
+        // String sqlQuery2 = "select from t_student01 where student_name='Ahmet Saat'";
+        //   Object[] uniqueResult1 = (Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
+        // System.out.println(Arrays.toString(uniqueResult1));
 
         //HQL ile
-        String hqLQuery2="from Student01 where name='Fatih Kul'";
-        Student01 student01= session.createQuery(hqLQuery2,Student01.class).uniqueResult();
+        String hqLQuery2 = "from Student01 where name='Fatih Kul'";
+        Student01 student01 = session.createQuery(hqLQuery2, Student01.class).uniqueResult();
         System.out.println(student01);
-        tx.commit();
 
-        session.close();
-        sF.close();
+        //Yukaridaki sorguyu hql alias kullanarak yapalim
+        String hqlQuery3 = "From Student01 std where std.name='Ahmet Saat'";
+        Student01 Result = session.createQuery(hqlQuery3, Student01.class).uniqueResult();
+        System.out.println(Result);
 
+
+        // !!! HQL ile grade degeri 90 olan ogrenciyi getirelim
+        String hqlQuery4 = "From Student01 std where std.grade=90";
+        List<Student01> Result2 = session.createQuery(hqlQuery4, Student01.class).getResultList();
+        System.out.println(Result2);
+        //2.yol
+        String hqlQuery5 = "SELECT s.id, s.name FROM Student01 s WHERE s.grade=90";
+        List<Object[]> resultList5 = session.createQuery(hqlQuery5).getResultList();
+        for (Object[] object : resultList5) {
+            System.out.println(Arrays.toString(object));
+
+
+            tx.commit();
+
+            session.close();
+            sF.close();
+
+        }
     }
 }
