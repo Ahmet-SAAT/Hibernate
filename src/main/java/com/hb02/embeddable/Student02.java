@@ -1,4 +1,4 @@
-package com.hb01.embeddable;
+package com.hb02.embeddable;
 
 import javax.persistence.*;
 
@@ -59,4 +59,5 @@ public class Student02 {
                 ", address=" + address +
                 '}';
     }
+
 }

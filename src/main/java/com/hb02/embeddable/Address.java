@@ -1,12 +1,14 @@
-package com.hb01.embeddable;
+package com.hb02.embeddable;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 
 @Embeddable
 public class Address {
     private String street;
     private String city;
     private String contry;
+
     private String zipCode;
 
     public String getStreet() {
