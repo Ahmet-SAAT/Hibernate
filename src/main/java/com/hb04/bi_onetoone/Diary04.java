@@ -1,4 +1,4 @@
-package com.hb04.onetoone;
+package com.hb04.bi_onetoone;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -50,7 +50,7 @@ public class Diary04 {
         return "Diary04{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", student=" + student +
+               // ", student=" + student +//stackoverflow verir.Student diary diary studenta gelecek.Kisir dongu.Bunu bozduk.
                 '}';
     }
 }

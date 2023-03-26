@@ -4,6 +4,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+//Embadabble ile onetoone da ki fark yeni tablo olusumunudur.Embedablede bir entity ve bir tablo vardir.
+//Onetoone da iki entity ve 2 tablo vardi.Tablonun birine joincolumn ile fk eklenir.
+//Hibernate kullaniliyorsa her toplada pk olmak zorundadir.SL de zorunlu degildi.
 @Entity
 public class Diary {
 
@@ -13,8 +16,8 @@ public class Diary {
     private String name;
 
     @OneToOne
-    @JoinColumn(name="std_id")
-    private Student03 student; // student_id
+    @JoinColumn(name="std_id")//std_id adinda bir column olusturur.Bu fkdir.
+    private Student03 student; // name yazmasak fk student_id olurdu
 
         // !!! Getter-Setter
 

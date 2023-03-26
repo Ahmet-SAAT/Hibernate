@@ -1,4 +1,4 @@
-package com.hb04.onetoone;
+package com.hb04.bi_onetoone;
 
 
 import org.hibernate.Session;
