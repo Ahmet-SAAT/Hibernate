@@ -46,11 +46,27 @@ public class RunnerFetch04 {
 //        });
 
         //hql ile left join yapalim
-        String hql2="select s.name,d.name from Student04 s left join fetch Diary04 d on s.id=d.student";
+        String hql2="select s.name,d.name from Student04 s righ join fetch Diary04 d on s.id=d.student";
+        //hem soldaki student classinin hepsin hepte bu classta diary varsa onlari da getir.Iki class join
         List<Object[]> resultList2 =session.createQuery(hql2).getResultList();
         resultList2.forEach(t->{
            System.out.println(Arrays.toString(t));
         });
+
+       //Butun gunlukler ve varsa gunlugu olan ogrenciler gesin
+        String hql3="select s.name,d.name from Student04 s righ join fetch Diary04 d on s.id=d.student";
+        List<Object[]> resultList3=session.createQuery(hql3).getResultList();
+        resultList3.forEach(oa->{
+            System.out.println(Arrays.toString(oa));
+        });
+//Butun student ce diary bilgilerini getirin
+        String hql4="select s.name,d.name from Student04 s full join fetch Diary04 d on s.id=d.student";
+        List<Object[]> resultList4=session.createQuery(hql4).getResultList();
+        resultList4.forEach(oa->{
+            System.out.println(Arrays.toString(oa));
+        });
+
+
         tx.commit();
         session.close();
         sf.close();
