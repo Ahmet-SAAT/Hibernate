@@ -40,9 +40,8 @@ public class Book08 {
 
     @Override
     public String toString() {
-        return "Book08{" +
+        return
                 "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+                ", name='" + name ;
     }
 }
