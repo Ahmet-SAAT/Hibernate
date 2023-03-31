@@ -20,7 +20,7 @@ public class Student10 {
    @SequenceGenerator(name = "sequence",//ayni ismi yukarida generator kismina yazmaliyiz
    sequenceName="student_seq",//db de olusacak olan sequence ismi
            initialValue = 1000,//baslamadegeri
-           allocationSize = 10//artma degeri
+           allocationSize = 10//casleme mekanzmasinda 10 adet id hazir bekletilsin
    )
     @Id
     private int id;
