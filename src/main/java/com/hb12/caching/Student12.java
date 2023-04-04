@@ -1,5 +1,7 @@
 package com.hb12.caching;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
 import javax.persistence.*;
 /*
 1)  First Level Cache --->
@@ -16,6 +18,8 @@ import javax.persistence.*;
             * hibernate.cfg.xml den active edilebilir
  */
 @Entity
+@Cacheable
+@Cache(usage= CacheConcurrencyStrategy.READ_WRITE,region = "Student12")
 public class Student12 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
